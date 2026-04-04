@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+ul li a{
+    font-family: "Roboto", sans-serif;
+    font-weight: bolder;
+    font-optical-sizing: auto;
+    color: #580909;
+    }
+
+ul li {
+    list-style: none;
+}
+
+header{
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.253);
+}
+
+main{
+    margin-top: 80px;
+
+}
+
+#butão1{
+    background-color: #580909;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#visitanteBtn{
+    background-color: #46454534;
+    color: #580909;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#visitanteBtn:hover {
+    background-color: #580909;
+    color: #fff;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s;
+      }
+      .navbar-link:hover {
+        color: #007bff !important;
+        transition: color 0.2s;
+      }
+      .item {
+        animation: fadeIn 1s ease-in;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
