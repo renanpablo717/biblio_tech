@@ -12,9 +12,9 @@
     <script src="https://kit.fontawesome.com/203aa36ad5.js" crossorigin="anonymous"></script>
 
     <!-- Estilo CSS -->
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="css/estilo.css">
 
-    <title>BiblioTech - Visitante</title>
+    <title>Bem-vindo à Vitrine BiblioTech!</title>
   </head>
   <body>
 
@@ -32,7 +32,7 @@
               <a class="navbar-link ml-4" href="index.html">VOLTAR AO LOGIN</a>
             </li>
             <li class="navbar-item">
-              <a class="navbar-link ml-4" href="#">LIVROS (VISUALIZAÇÃO)</a>
+              <a class="navbar-link ml-4" href="livros.html">LIVROS (VISUALIZAÇÃO)</a>
             </li>
           </ul>
         </div>
@@ -43,29 +43,29 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h3 class="h3">Bem-vindo como Visitante ao BiblioTech!</h3>
-            <p>Você tem acesso limitado: pode visualizar livros, mas não fazer download ou empréstimos. Para acesso completo, faça login ou cadastre-se.</p>
+            <h3 class="h3">Bem-vindo à Vitrine BiblioTech!</h3>
+            <p>Explore o acervo comunitário de Neves Paulista. Navegue pelas categorias para encontrar livros disponíveis para doação.</p>
             <br>
             <div class="alert alert-warning" role="alert">
-              <strong>Acesso Limitado:</strong> Apenas visualização disponível. Cadastre-se para mais funcionalidades!
+              <strong>💡 Quer desapegar de um livro? </strong>Faça login ou cadastre-se para disponibilizar exemplares e ajudar outros leitores da cidade!
             </div>
             <br>
             <div class="row mt-2">
-              <div class="col-md-4">
+              <div class="col-md-4 mt-2">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Ficção</h5>
-                    <p class="card-text">Visualize histórias incríveis (sem download).</p>
-                    <button class="btn btn-secondary" disabled>Visualizar</button>
+                    <h5 class="card-title">Didáticos e Escolares</h5>
+                    <p class="card-text">Livros do ensino fundamental, médio e apostilas de vestibular.</p>
+                    <a href="livros.html?cat=Didáticos" class="btn btn-primary">Livros Disponíves</a>
                   </div>
                 </div>
               </div>
               <div class="col-md-4 mt-2">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Não Ficção</h5>
-                    <p class="card-text">Explore conhecimentos (visualização apenas).</p>
-                    <button class="btn btn-secondary" disabled>Visualizar</button>
+                    <h5 class="card-title">Literatura e Ficção</h5>
+                    <p class="card-text">Romances, contos, clássicos brasileiros e ficção em geral.</p>
+                    <a href="livros.html?cat=Literatura" class="btn btn-primary">Livros Disponíves</a>
                   </div>
                 </div>
               </div>
@@ -73,14 +73,47 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Infantil</h5>
-                    <p class="card-text">Livros divertidos para crianças (visualização).</p>
-                    <button class="btn btn-secondary" disabled>Visualizar</button>
+                    <p class="card-text">Livros ilustrados, fábulas e histórias para incentivar os pequenos.</p>
+                    <a href="livros.html?cat=Infantil" class="btn btn-primary">Livros Disponíves</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row mt-2">
+              <div class="col-md-4 mt-2">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Técnicos e Universitários</h5>
+                    <p class="card-text">Obras de tecnologia, exatas, humanas e formação profissional.</p>
+                    <a href="livros.html?cat=Técnicos" class="btn btn-primary">Livros Disponíves</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mt-2">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Não Ficção e Biografias</h5>
+                    <p class="card-text">Obras sobre história, ciência, memórias e desenvolvimento pessoal.</p>
+                    <a href="livros.html?cat=NãoFicção" class="btn btn-primary">Livros Disponíves</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mt-2">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Outros / Gerais</h5>
+                    <p class="card-text">Revistas, quadrinhos e temas variados em bom estado.</p>
+                    <a href="livros.html?cat=Outros" class="btn btn-primary">Livros Disponíves</a>
                   </div>
                 </div>
               </div>
             </div>
             <br>
-            <p class="text-center"><a href="index.html" class="btn btn-primary">Fazer Login para Acesso Completo</a></p>
+            <p class="text-center"><a href="index.html" style="background-color: #580909; color: #fff; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;" class="btn">Fazer Login para Acesso Completo</a></p>
           </div>
         </div>
       </div>

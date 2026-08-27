@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/203aa36ad5.js" crossorigin="anonymous"></script>
+
+    <!-- Estilo CSS -->
+    <link rel="stylesheet" href="css/estilo.css">
+
+    <title>BiblioTech - Cadastrar Livro</title>
+  </head>
+  <body>
+
+    <header>
+      <!-- Navegação -->
+      <nav class="navbar navbar-expand-sm">
+        <div class="container">
+          <a href="biblioteca.html" class="navbar-brand">
+            <img src="imagens/nevespaulista.sp.gov.br-logo.png" alt="Prefeitura de Neves Paulista" class="img-fluid" width="150" height="55">
+          </a>
+
+          <ul class="navbar-nav mr-auto">
+            <li class="navbar-item">
+              <a class="navbar-link ml-4" href="biblioteca.html">CATEGORIAS</a>
+            </li>
+            <li class="navbar-item">
+              <a class="navbar-link ml-4" href="index.html">SAIR</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container my-5">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          
+          <div class="card shadow-sm border-0" style="border-radius: 12px;">
+            <div class="card-body p-4">
+              
+              <h3 class="fw-bold mb-1" style="color: #5c0f12;">Doar / Cadastrar Livro</h3>
+              <p class="text-muted mb-4">Preencha os dados do exemplar para disponibilizá-lo à comunidade.</p>
+
+              <form id="form-cadastro-livro">
+                
+                <!-- Título -->
+                <div class="form-group mb-3">
+                  <label for="titulo" class="font-weight-bold">Título da Obra *</label>
+                  <input type="text" class="form-control" id="titulo" placeholder="Ex: Dom Casmurro" required>
+                </div>
+
+                <!-- Autor -->
+                <div class="form-group mb-3">
+                  <label for="autor" class="font-weight-bold">Autor / Escritor *</label>
+                  <input type="text" class="form-control" id="autor" placeholder="Ex: Machado de Assis" required>
+                </div>
+
+                <!-- Categoria -->
+                <div class="form-group mb-3">
+                  <label for="categoria" class="font-weight-bold">Categoria *</label>
+                  <select class="form-control" id="categoria" required>
+                    <option value="" disabled selected>Selecione uma categoria...</option>
+                    <option value="Didáticos">Didáticos e Escolares</option>
+                    <option value="Literatura">Literatura e Ficção</option>
+                    <option value="Infantil">Infantil</option>
+                    <option value="Técnicos">Técnicos e Universitários</option>
+                    <option value="NãoFicção">Não Ficção e Biografias</option>
+                    <option value="Outros">Outros / Gerais</option>
+                  </select>
+                </div>
+
+                <!-- Descrição / Estado de Conservação -->
+                <div class="form-group mb-3">
+                  <label for="descricao" class="font-weight-bold">Estado de Conservação / Detalhes *</label>
+                  <textarea class="form-control" id="descricao" rows="3" maxlength="200" placeholder="Ex: Capa bem cuidada, sem rasuras. Ideal para estudos." required></textarea>
+                </div>
+
+                <!-- WhatsApp para Contato -->
+                <div class="form-group mb-3">
+                  <label for="whatsapp" class="font-weight-bold">WhatsApp para Contato *</label>
+                  <input type="text" class="form-control" id="whatsapp" placeholder="(17) 99999-9999" maxlength="15" required>
+                  <small class="form-text text-muted">Interessados clicarão para conversar diretamente com você.</small>
+                </div>
+
+                <!-- Checkbox de Consentimento LGPD -->
+                <div class="form-group form-check mb-4">
+                  <input type="checkbox" class="form-check-input" id="consentimento" required>
+                  <label class="form-check-label text-muted small" for="consentimento">
+                    Concordo em disponibilizar publicamente o número de contato informado para interessados na doação deste livro.
+                  </label>
+                </div>
+
+                <!-- Botões de Ação -->
+                <div class="d-flex justify-content-between align-items-center">
+                  <a href="biblioteca.html" class="btn btn-outline-secondary">Cancelar</a>
+                  <button type="submit" class="btn text-white font-weight-bold px-4" style="background-color: #5c0f12; border-radius: 8px;">
+                    Publicar Doação
+                  </button>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container text-center py-3">
+        <p class="text-muted mb-0">&copy; 2026 Biblioteca. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/cadastro.js"></script>
+  </body>
+</html>

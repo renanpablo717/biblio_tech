@@ -1,6 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -33,6 +37,7 @@ main{
 
 }
 
+
 #butão1{
     background-color: #580909;
     color: #fff;
@@ -45,8 +50,8 @@ main{
 #visitanteBtn{
     background-color: #46454534;
     color: #580909;
+    border: 2px solid #580909;
     padding: 10px 20px;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
 }

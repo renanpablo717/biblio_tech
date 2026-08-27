@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/203aa36ad5.js" crossorigin="anonymous"></script>
 
     <!-- Estilo CSS -->
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="css/estilo.css">
 
 
     <title>BiblioTech</title>
@@ -38,11 +38,11 @@
             </li>
 
             <li class="navbar-item">
-              <a class="navbar-link ml-4" href="#">IDEALIZAÇÃO</a>
+              <a class="navbar-link ml-4" href="#idealizacao">IDEALIZAÇÃO</a>
             </li>
 
             <li class="navbar-item">
-              <a class="navbar-link ml-4" href="#">CONTATO</a>
+              <a class="navbar-link ml-4" href="#contato">CONTATO</a>
             </li>
 
           </ul>
@@ -60,8 +60,9 @@
         <div class="col-12 col-md-6 item">
 
           <h3 class="h3">Bem-vindo ao BiblioTech</h3>
-          <p>BiblioTech - Sua biblioteca digital em Neves Paulista</p><br>
-          <p>O BiblioTech é um projeto inovador que visa proporcionar acesso fácil e gratuito a uma vasta coleção de livros digitais para os moradores de Neves Paulista. Com uma interface amigável e recursos interativos, o BiblioTech oferece uma experiência de leitura única, permitindo que os usuários explorem uma ampla variedade de gêneros literários, desde clássicos até lançamentos recentes. Além disso, o BiblioTech promove a inclusão digital, incentivando a leitura e o aprendizado em toda a comunidade. Junte-se a nós nessa jornada literária e descubra um mundo de conhecimento ao seu alcance com o BiblioTech!</p>
+          <p>BiblioTech - Conectando Leitores e Compartilhando Conhecimento</p><br>
+          <p>O BiblioTech Lite é uma iniciativa comunitária criada para democratizar o acesso à leitura e incentivar a economia circular em Neves Paulista. Nossa plataforma conecta moradores que possuem livros físicos parados em casa a estudantes e leitores que precisam desses materiais.
+          Explore nosso acervo comunitário, encontre livros didáticos, técnicos ou de literatura e entre em contato direto com os doadores de forma simples e gratuita. Ao doar ou retirar um exemplar, você fortalece a educação local e contribui para a preservação do meio ambiente pelo reaproveitamento consciente</p>
 
 
         </div>
@@ -96,9 +97,72 @@
 
     </main>
 
+    
+    <!-- Seção Idealização -->
+      <section id="idealizacao" class="py-5 bg-light">
+        <div class="container">
+          <h3 class="fw-bold mb-3" style="color: #5c0f12;">Sobre a Idealização do Projeto</h3>
+          <p class="text-muted">
+            O <strong>BiblioTech Lite</strong> foi concebido como uma ação de extensão universitária voltada ao município de Neves Paulista. O objetivo é promover a democratização do conhecimento e o estímulo à economia circular através da circulação e doação gratuita de livros físicos entre a comunidade local.
+          </p>
+        </div>
+      </section>
+
+    <!-- Seção Contato / Suporte Comunitário -->
+      <section id="contato" class="py-5">
+        <div class="container">
+          <h3 class="fw-bold mb-3" style="color: #5c0f12;">Contato & Suporte Comunitário</h3>
+          <p class="text-muted mb-4">Dúvidas sobre o funcionamento da plataforma ou sugestões de melhoria? Fale com a equipe do projeto:</p>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <div class="p-3 border rounded">
+                <h6 class="fw-bold mb-1">E-mail de Suporte</h6>
+                <p class="text-muted mb-0">contato.bibliotech@nevespaulista.sp.gov.br</p>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="p-3 border rounded">
+                <h6 class="fw-bold mb-1">Local de Apoio</h6>
+                <p class="text-muted mb-0">Neves Paulista - SP | Ação Comunitária</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
-
+    <!-- Modal de Cadastro de Usuário -->
+      <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content border-0 shadow">
+            <div class="modal-header text-white" style="background-color: #5c0f12;">
+              <h5 class="modal-title font-weight-bold">Criar Nova Conta</h5>
+              <button type="button" class="close text-white" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body p-4">
+              <form id="form-criar-conta">
+                <div class="form-group mb-3">
+                  <label for="cad-nome" class="font-weight-bold">Nome Completo</label>
+                  <input type="text" class="form-control" id="cad-nome" placeholder="Seu nome" required>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="cad-email" class="font-weight-bold">E-mail</label>
+                  <input type="email" class="form-control" id="cad-email" placeholder="seuemail@exemplo.com" required>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="cad-senha" class="font-weight-bold">Senha (mínimo 6 dígitos)</label>
+                  <input type="password" class="form-control" id="cad-senha" minlength="6" placeholder="******" required>
+                </div>
+                <button type="submit" class="btn text-white btn-block font-weight-bold" style="background-color: #5c0f12;">
+                  Cadastrar
+                </button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -108,42 +172,104 @@
 
     <!-- Script para interatividade -->
     <script>
-     
+    // 1. Função auxiliar para validar formato de e-mail
+  function validarEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
 
-      // Validação melhorada do formulário
-      document.getElementById('butão1').addEventListener('click', function(event) {
-        event.preventDefault();
-        const email = document.getElementById('Email').value;
-        const senha = document.getElementById('Senha').value;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// 2. Converte a senha em hash criptográfico SHA-256
+async function gerarHashSenha(senha) {
+  const msgBuffer = new TextEncoder().encode(senha);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  }
 
-        if (!email || !emailRegex.test(email)) {
-          alert('Por favor, insira um email válido.');
-          return;
-        }
-        if (!senha || senha.length < 6) {
-          alert('A senha deve ter pelo menos 6 caracteres.');
-          return;
-        }
-        alert('Login realizado com sucesso!');
-        // Aqui você pode redirecionar ou fazer uma requisição AJAX
-        window.location.href = 'biblioteca.html';
-      });
+  // 3. Abrir Modal ao clicar em "Não tem conta? Cadastre-se"
+  document.getElementById('cadastroLink').addEventListener('click', function(e) {
+  e.preventDefault();
+  $('#modalCadastro').modal('show');
+    });
 
-      // Ação para link de cadastro
-      document.getElementById('cadastroLink').addEventListener('click', function(event) {
-        event.preventDefault();
-        alert('Página de cadastro em breve! Por enquanto, use um email e senha simples.');
-      });
+  // 4. Processar o Cadastro de Nova Conta com Criptografia
+  document.getElementById('form-criar-conta').addEventListener('submit', async function(e) {
+  e.preventDefault();
 
-      // Ação para entrar como visitante
-      document.getElementById('visitanteBtn').addEventListener('click', function() {
-        alert('Entrando como visitante. Acesso limitado ativado!');
-        // Aqui você pode redirecionar para uma página com acesso limitado
-        window.location.href = 'visitante.html';
-      });
-    </script>
+  const nome = document.getElementById('cad-nome').value.trim();
+  const email = document.getElementById('cad-email').value.trim().toLowerCase();
+  const senhaPura = document.getElementById('cad-senha').value;
 
+  if (!validarEmail(email)) {
+    alert('Por favor, informe um e-mail válido.');
+    return;
+  }
+
+  // Criptografa a senha com SHA-256
+  const senhaHash = await gerarHashSenha(senhaPura);
+
+  const usuarios = JSON.parse(localStorage.getItem('bibliotech_usuarios')) || [];
+
+  // Evita e-mails duplicados
+  if (usuarios.some(u => u.email === email)) {
+    alert('Este e-mail já está cadastrado. Faça login ou utilize outro.');
+    return;
+  }
+
+  // Salva no LocalStorage somente o Hash da senha
+  usuarios.push({ nome, email, senha: senhaHash });
+  localStorage.setItem('bibliotech_usuarios', JSON.stringify(usuarios));
+
+  alert('Conta criada com sucesso e protegida com Hash SHA-256!');
+  $('#modalCadastro').modal('hide');
+
+  // Preenche os campos do login automaticamente
+  document.getElementById('Email').value = email;
+  document.getElementById('Senha').value = '';
+  document.getElementById('Senha').focus();
+  });
+
+  // 5. Processar o Login
+  document.getElementById('butão1').addEventListener('click', async function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById('Email').value.trim().toLowerCase();
+  const senhaPura = document.getElementById('Senha').value;
+
+  if (!email || !validarEmail(email)) {
+    alert('Por favor, insira um e-mail válido.');
+    return;
+  }
+  if (!senhaPura || senhaPura.length < 6) {
+    alert('A senha deve ter pelo menos 6 caracteres.');
+    return;
+  }
+
+  // Gera o hash da senha digitada para comparar com o hash salvo
+  const senhaHash = await gerarHashSenha(senhaPura);
+
+  const usuarios = JSON.parse(localStorage.getItem('bibliotech_usuarios')) || [];
+  const usuarioEncontrado = usuarios.find(u => u.email === email && u.senha === senhaHash);
+
+  if (usuarioEncontrado) {
+    sessionStorage.setItem('usuario_logado', JSON.stringify({
+      nome: usuarioEncontrado.nome,
+      email: usuarioEncontrado.email
+    }));
+
+    alert(`Bem-vindo(a), ${usuarioEncontrado.nome}!`);
+    window.location.href = 'biblioteca.html';
+  } else {
+    alert('E-mail ou senha incorretos. Verifique suas credenciais ou crie uma conta.');
+  }
+  });
+
+    // 6. Entrar como Visitante
+    document.getElementById('visitanteBtn').addEventListener('click', function() {
+      sessionStorage.removeItem('usuario_logado'); // Limpa qualquer sessão ativa
+      window.location.href = 'visitante.html';
+    });
+
+  </script>
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
