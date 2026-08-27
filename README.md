@@ -54,7 +54,7 @@ biblio_tech/
 Clone o repositório:
 
 Bash
-git clone [https://github.com/SEU-USUARIO/biblio_tech.git](https://github.com/SEU-USUARIO/biblio_tech.git)
+git clone [https://github.com/renanpablo717/biblio_tech.git](https://github.com/renanpablo717/biblio_tech.git)
 Acesse a pasta do projeto:
 
 Bash
