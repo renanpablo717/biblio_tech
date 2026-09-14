@@ -1,73 +1,70 @@
 Markdown
-# 📚 BiblioTech Lite — Plataforma Comunitária de Doação de Livros
+# 📚 BiblioTech Lite
 
-O **BiblioTech Lite** é uma aplicação web desenvolvida como projeto de extensão universitária voltada ao município de Neves Paulista - SP. A proposta busca incentivar a circulação de conhecimento e a sustentabilidade por meio da economia circular, conectando doadores a leitores e estudantes da região de forma gratuita e acessível.
-
----
-
-## 🚀 Funcionalidades
-
-* **Vitrine Dinâmica de Livros:** Exibição responsiva dos exemplares divididos por categorias temáticas (Didáticos, Literatura, Infantil, Técnicos, Não Ficção e Gerais).
-* **Filtros por URL:** Navegação limpa via query parameters (`?cat=...`) para segmentação do acervo.
-* **Contato Direto via WhatsApp:** Botão de interesse com mensagem pré-formatada e sanitização de número com código de país e DDD.
-* **Cadastro de Exemplares com Validação:** Formulário com máscara visual de telefone, validação de campos obrigatórios e termo de consentimento (LGPD).
-* **Controle de Acesso & Sessão:**
-  * Modo **Visitante** para navegação e visualização do acervo.
-  * Autenticação de **Usuário** para publicação e gestão de doações.
-  * Tratamento de senhas via função hash e persistência em `localStorage` e `sessionStorage`.
-* **Interface Responsiva:** Desenvolvida com Bootstrap 4, com paleta de cores institucional alinhada ao município.
+O **BiblioTech Lite** é uma aplicação web desenvolvida como projeto de extensão universitária para incentivar e facilitar a doação e troca de livros didáticos e literários na comunidade escolar e acadêmica.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **HTML5** — Estruturação semântica das páginas.
-* **CSS3** — Estilização personalizada e variáveis visuais.
-* **JavaScript (ES6+)** — Manipulação de DOM, regras de negócio, criptografia básica de sessão e persistência.
-* **Bootstrap 4.5** — Grid responsivo, componentes visuais e modais.
-* **Font Awesome** — Ícones de interface e navegação.
+### Front-end
+* **HTML5** & **CSS3**
+* **Bootstrap 4.5 / FontAwesome**
+* **JavaScript ES6+** (requisições assíncronas com `fetch`)
+
+### Back-end & Banco de Dados
+* **Python 3** (Ambiente isolado `venv`)
+* **Flask** & **Flask-CORS** (API REST)
+* **psycopg2** (Driver de conexão PostgreSQL)
+* **PostgreSQL** (Banco de dados relacional)
 
 ---
 
-## 📁 Estrutura de Pastas
+## 🏗️ Arquitetura do Sistema
 
-```text
-biblio_tech/
-│
-├── css/
-│   └── estilo.css           # Folha de estilos personalizados
-│
-├── js/
-│   ├── cadastro.js         # Lógica do formulário de cadastro e máscara de telefone
-│   └── livro.js            # Filtros dinâmicos e injeção dos cards do acervo
-│
-├── imagens/
-│   └── logo-municipio.png   # Brasão institucional
-│
-├── index.html              # Tela de apresentação, login, modal de cadastro e contato
-├── biblioteca.html         # Painel de categorias do acervo
-├── cadastro.html           # Formulário de inclusão de livros (restrito)
-├── livros.html             # Vitrine dos livros filtrados
-├── LICENSE
-└── README.md
-💻 Como Executar o Projeto Localmente
-Clone o repositório:
+A aplicação adota uma arquitetura em **3 Camadas**:
 
-Bash
-git clone [https://github.com/renanpablo717/biblio_tech.git](https://github.com/renanpablo717/biblio_tech.git)
-Acesse a pasta do projeto:
+1. **Camada de Apresentação (Front-end):** Páginas estáticas dinamicamente populadas via requisições HTTP (`fetch`) executadas no navegador.
+2. **Camada de Aplicação (Back-end/API):** Servidor Python/Flask encarregado da lógica de negócios, sanitização e comunicação segura via endpoints `/livros`.
+3. **Camada de Dados (PostgreSQL):** Armazenamento relacional dos usuários, categorias e acervo de livros.
+
+---
+
+## 🚀 Como Executar o Projeto Localmente
+
+### Pré-requisitos
+* Python 3 instalado
+* PostgreSQL instalado e rodando na máquina
+
+### 1. Configurar o Banco de Dados
+No pgAdmin ou terminal `psql`, crie o banco de dados e execute o script SQL de inicialização:
+
+```sql
+CREATE DATABASE biblioteca;
+(Crie as tabelas usuarios, categorias e livros com suas respectivas chaves estrangeiras).
+
+2. Configurar o Servidor Python (API)
+Ative o ambiente virtual:
 
 Bash
-cd biblio_tech
-Execução:
+# Windows (PowerShell)
+.\venv\Scripts\Activate.ps1
+Instale as dependências contidas no requirements.txt:
 
-Abra a pasta no VS Code.
+Bash
+pip install -r requirements.txt
+Inicie a API Flask:
 
-Inicie com a extensão Live Server (recomendado para suporte a todas as APIs de navegador) ou abra o arquivo index.html diretamente no navegador.
+Bash
+python app.py
+(A API rodará no endereço http://localhost:5000).
 
-📌 Próximos Passos (Roadmap)
-[ ] Implementação de Back-end com API REST (Node.js ou Python).
+3. Executar o Front-end
+Abra o arquivo index.html ou livros.html através da extensão Live Server no VS Code.
 
-[ ] Migração da persistência do localStorage para banco de dados relacional PostgreSQL.
+🔒 Segurança (OWASP & Security by Design)
+Prevenção de SQL Injection: Parâmetros de consulta sanitizados via tuplas no psycopg2.
 
-[ ] Painel administrativo para gestão de status dos livros (Disponível / Doado).
+CORS Configurado: Controle de origem para requisições cross-origin entre o front-end local e a API.
+
+Isolamento de Credenciais: Arquivos de ambiente virtual e configurações locais gerenciados através de .gitignore.

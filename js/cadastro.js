@@ -1,59 +1,80 @@
-// Trava de segurança: impede visitante de acessar a tela de cadastro
-if (!sessionStorage.getItem('usuario_logado')) {
-  alert('Acesso restrito! Faça login ou crie uma conta para doar livros.');
-  window.location.href = 'index.html';
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const formCadastro = document.getElementById('form-cadastro'); 
 
-
-// 1. Máscara automática de WhatsApp
-const inputWhatsapp = document.getElementById('whatsapp');
-
-inputWhatsapp.addEventListener('input', function (e) {
-  let valor = e.target.value.replace(/\D/g, '');
-
-  if (valor.length > 11) valor = valor.slice(0, 11);
-
-  if (valor.length > 6) {
-    e.target.value = `(${valor.slice(0, 2)}) ${valor.slice(2, 7)}-${valor.slice(7)}`;
-  } else if (valor.length > 2) {
-    e.target.value = `(${valor.slice(0, 2)}) ${valor.slice(2)}`;
-  } else if (valor.length > 0) {
-    e.target.value = `(${valor}`;
-  }
-});
-
-// 2. Salva o livro sem apagar os existentes
-document.getElementById('form-cadastro-livro').addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  const telefoneLimpo = inputWhatsapp.value.replace(/\D/g, '');
-
-  if (telefoneLimpo.length < 10 || telefoneLimpo.length > 11) {
-    alert('Por favor, informe um número de telefone com DDD válido.');
-    inputWhatsapp.focus();
+  if (!formCadastro) {
+    console.error('ERRO: Formulário com id="form-cadastro" NÃO foi encontrado no HTML!');
     return;
   }
 
-  const novoLivro = {
-    id: Date.now(),
-    titulo: document.getElementById('titulo').value.trim(),
-    autor: document.getElementById('autor').value.trim(),
-    categoria: document.getElementById('categoria').value,
-    descricao: document.getElementById('descricao').value.trim(),
-    whatsapp: telefoneLimpo,
-    status: 'Disponível',
-    data_cadastro: new Date().toISOString()
-  };
+  console.log('Formulário encontrado com sucesso. Listener de submit registrado.');
 
-  // Pega o que já está salvo no LocalStorage
-  const listaAtual = JSON.parse(localStorage.getItem('bibliotech_livros')) || [];
-  
-  // Adiciona o novo livro no início
-  listaAtual.unshift(novoLivro);
+  formCadastro.addEventListener('submit', async (event) => {
+    event.preventDefault(); 
+    console.log('Evento de submit disparado!');
 
-  // Salva a lista completa de volta
-  localStorage.setItem('bibliotech_livros', JSON.stringify(listaAtual));
+    const btnSubmit = formCadastro.querySelector('button[type="submit"]');
+    const textoOriginal = btnSubmit ? btnSubmit.innerHTML : '';
+    
+    if (btnSubmit) {
+      btnSubmit.innerHTML = 'Cadastrando...';
+      btnSubmit.disabled = true;
+    }
 
-  alert('Livro cadastrado com sucesso!');
-  window.location.href = `livros.html?cat=${encodeURIComponent(novoLivro.categoria)}`;
+    // Captura dos elementos
+    const elTitulo = document.getElementById('titulo');
+    const elAutor = document.getElementById('autor');
+    const elDescricao = document.getElementById('descricao');
+    const elCategoria = document.getElementById('categoria');
+
+    if (!elTitulo || !elAutor || !elCategoria) {
+      console.error('ERRO: Um ou mais campos de input (titulo, autor, categoria) não foram encontrados no HTML!');
+      if (btnSubmit) {
+        btnSubmit.innerHTML = textoOriginal;
+        btnSubmit.disabled = false;
+      }
+      return;
+    }
+
+    const novoLivro = {
+      titulo: elTitulo.value,
+      autor: elAutor.value,
+      descricao: elDescricao ? elDescricao.value : '',
+      categoria_id: parseInt(elCategoria.value) || 1, 
+      usuario_id: 1 
+    };
+
+    console.log('Enviando os seguintes dados para a API:', novoLivro);
+
+    try {
+      const resposta = await fetch('http://localhost:5000/livros', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(novoLivro)
+      });
+
+      console.log('Status da resposta HTTP:', resposta.status);
+
+      if (!resposta.ok) {
+        const erroBody = await resposta.json();
+        throw new Error(erroBody.erro || 'Falha ao comunicar com o servidor');
+      }
+
+      const dados = await resposta.json();
+      console.log('Resposta recebida do Flask:', dados);
+      
+      alert('Livro cadastrado com sucesso no banco de dados!');
+      window.location.href = 'livros.html';
+
+    } catch (erro) {
+      console.error('Erro ao cadastrar:', erro);
+      alert('Erro ao cadastrar: ' + erro.message);
+      
+      if (btnSubmit) {
+        btnSubmit.innerHTML = textoOriginal;
+        btnSubmit.disabled = false;
+      }
+    }
+  });
 });
