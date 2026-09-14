@@ -49,7 +49,7 @@
               <h3 class="fw-bold mb-1" style="color: #5c0f12;">Doar / Cadastrar Livro</h3>
               <p class="text-muted mb-4">Preencha os dados do exemplar para disponibilizá-lo à comunidade.</p>
 
-              <form id="form-cadastro-livro">
+              <form id="form-cadastro">
                 
                 <!-- Título -->
                 <div class="form-group mb-3">
@@ -68,12 +68,12 @@
                   <label for="categoria" class="font-weight-bold">Categoria *</label>
                   <select class="form-control" id="categoria" required>
                     <option value="" disabled selected>Selecione uma categoria...</option>
-                    <option value="Didáticos">Didáticos e Escolares</option>
-                    <option value="Literatura">Literatura e Ficção</option>
-                    <option value="Infantil">Infantil</option>
-                    <option value="Técnicos">Técnicos e Universitários</option>
-                    <option value="NãoFicção">Não Ficção e Biografias</option>
-                    <option value="Outros">Outros / Gerais</option>
+                    <option value="1">Didáticos e Escolares</option>
+                    <option value="2">Literatura e Ficção</option>
+                    <option value="3">Infantil</option>
+                    <option value="4">Técnicos e Universitários</option>
+                    <option value="5">Não Ficção e Biografias</option>
+                    <option value="6">Outros / Gerais</option>
                   </select>
                 </div>
 
@@ -101,6 +101,7 @@
                 <!-- Botões de Ação -->
                 <div class="d-flex justify-content-between align-items-center">
                   <a href="biblioteca.html" class="btn btn-outline-secondary">Cancelar</a>
+
                   <button type="submit" class="btn text-white font-weight-bold px-4" style="background-color: #5c0f12; border-radius: 8px;">
                     Publicar Doação
                   </button>
