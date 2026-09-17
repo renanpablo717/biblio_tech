@@ -71,7 +71,7 @@ def cadastrar_livro():
         ))
         
         novo_id = cursor.fetchone()[0]
-        conexao.commit() # Confirma as alterações no banco
+        conexao.commit()
         
         cursor.close()
         conexao.close()

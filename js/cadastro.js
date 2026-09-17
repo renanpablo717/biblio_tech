@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const formCadastro = document.getElementById('form-cadastro'); 
 
   if (!formCadastro) {
-    console.error('ERRO: Formulário com id="form-cadastro" NÃO foi encontrado no HTML!');
+    console.error('ERRO: Formulário com id="form-cadastro" NÃO foi encontrado no HTML! Certifique-se de que o elemento existe e que o script está sendo carregado após o DOM estar pronto.');
     return;
   }
 
